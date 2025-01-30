@@ -1,29 +1,26 @@
-package org.br.mineradora.entity;
+package org.br.mineradora.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.extern.jackson.Jacksonized;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
-@Table(name = "proposal")
+@Jacksonized
 @Data
-@NoArgsConstructor
-public class ProposalEntity {
+@Builder
+@AllArgsConstructor
+public class ProposalDetailsDTO {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
+    private Long proposalId;
     private String customer;
 
     @Column(name = "price_tonne")
     private BigDecimal priceTonne;
-
     private Integer tonnes;
-
     private String country;
 
     @Column(name = "proposal_validity_days")
