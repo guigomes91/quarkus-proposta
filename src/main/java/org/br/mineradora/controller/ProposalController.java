@@ -1,5 +1,6 @@
 package org.br.mineradora.controller;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -23,6 +24,7 @@ public class ProposalController {
     }
 
     @POST
+    @RolesAllowed("manager")
     public Response createProposal(ProposalDetailsDTO proposalDetails) {
         LOG.info("--- Recebendo Proposta de Compra ---");
 
